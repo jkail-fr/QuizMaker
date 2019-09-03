@@ -1,0 +1,47 @@
+/* Mise en forme du body */
+body
+{
+	background-color: #415967;
+	color: white;
+}
+
+
+/* Mise en forme du header du body */
+header
+{
+	text-align: center;
+	font-size: 20px;
+	font-family: "Trajan Pro", Arial, Verdana, sans-serif;
+}
+
+/* Mise en forme du paragraphe du header */
+h1+p
+{
+	text-align: left;
+	font-size: 16px;
+	font-family: "Times New Roman", Arial, Verdana, sans-serif;
+}
+
+/* Mise en forme des liens de navigation vers les quizz */
+nav a
+{
+ 	color: #001b50;   
+    font-size: 16px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    font-size: 17px;
+    color: #f9b200;
+    font-style: italic;
+    text-decoration: none;
+}
+
+/* Mise en forme du paragraphe d'introduction */
+.introduction
+{
+	align-content: center;
+	text-align: center;
+	width: 80%;
+}
