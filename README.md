@@ -16,6 +16,3 @@ pdo requete sur niveaux + categ
 ##Etape 4 : JS - Masquer le contenu et gérer les aniamtions et feedbacks
 
 ##Etape facultative : JS - Essayer le drag and drop
-
-TEST TEST
-TEST ENCORE 
