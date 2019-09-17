@@ -1,3 +1,9 @@
 <?php
 
-echo "bonjour";
+$host="yourhost";
+
+$dbname="yourdbname";
+
+$user="youruser";
+
+$password="yourpassword";
