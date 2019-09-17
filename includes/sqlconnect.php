@@ -2,7 +2,7 @@
 
 $host="localhost";
 
-$dbname="";
+$dbname="toto";
 
 $user="";
 
