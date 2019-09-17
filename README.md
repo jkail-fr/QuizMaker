@@ -18,14 +18,9 @@ pdo requete sur niveaux + categ
 ##Etape facultative : JS - Essayer le drag and drop
 
 
-PROCHAINE SESSION : 
-<<<<<<< HEAD
+PROCHAINE SESSION :
+0) gérer .gitignore to sqlconnect ;
 1) Mettre des "include" partout ;
-=======
-0) gérer .gitignore to sqlconnect
-1) Mettre des "include" partout
->>>>>>> origin/master
 2) création d'un formulaire de création de catégories ;
 3) création d'un formulaire de modification de catégories ;
-4) dupliquer modèle catégorie pour niveau et questions ;
-5) Gérer le gitignore.
+4) dupliquer modèle catégorie pour niveau et questions.
