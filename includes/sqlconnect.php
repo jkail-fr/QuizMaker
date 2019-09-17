@@ -1,9 +1,9 @@
 <?php
 
-$host="yourhost";
+$host="localhost";
 
-$dbname="yourdbname";
+$dbname="quizmaker";
 
-$user="youruser";
+$user="root";
 
-$password="yourpassword";
+$password="root";
