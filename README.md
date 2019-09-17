@@ -19,6 +19,7 @@ pdo requete sur niveaux + categ
 
 
 PROCHAINE SESSION : 
+0) gérer .gitignore to sqlconnect
 1) Mettre des "include" partout
 2) création d'un formulaire de création de catégories ;
 3) création d'un formulaire de modification de catégories ;
