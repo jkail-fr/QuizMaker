@@ -1,9 +1,9 @@
 <?php
 
-$host="yourhost";
+$host="localhost";
 
-$dbname="yourdbname";
+$dbname="";
 
-$user="youruser";
+$user="";
 
-$password="yourpassword";
+$password="";
