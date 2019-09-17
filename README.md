@@ -16,3 +16,10 @@ pdo requete sur niveaux + categ
 ##Etape 4 : JS - Masquer le contenu et gérer les aniamtions et feedbacks
 
 ##Etape facultative : JS - Essayer le drag and drop
+
+
+PROCHAINE SESSION : 
+1) Mettre des "include" partout
+2) création d'un formulaire de création de catégories ;
+3) création d'un formulaire de modification de catégories ;
+4) dupliquer modèle catégorie pour niveau et questions ;
