@@ -20,7 +20,15 @@ pdo requete sur niveaux + categ
 
 PROCHAINE SESSION :
 0) gérer .gitignore to sqlconnect ;
+
 1) Mettre des "include" partout ;
-2) création d'un formulaire de création de catégories ;
+
+2) création d'un formulaire de création de catégories <=> OK ;
+2bis) Formulaire pour choisir sa catégorie, puis choisir entre un champ "renommer" ou un bouton "supprimer" (alert js pour valider la suppression).
+
 3) création d'un formulaire de modification de catégories ;
+
 4) dupliquer modèle catégorie pour niveau et questions.
+4bis) lier les questions aux niveaux
+
+5) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter")
