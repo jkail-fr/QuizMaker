@@ -25,6 +25,7 @@ PROCHAINE SESSION :
 
 2) création d'un formulaire de création de catégories <=> OK ;
 2bis) Formulaire pour choisir sa catégorie, puis choisir entre un champ "renommer" ou un bouton "supprimer" (alert js pour valider la suppression).
+Quand on choisis une catégorie, ça désactive le reste ; champ "renommer" et bouton "supprimer"
 
 3) création d'un formulaire de modification de catégories ;
 
