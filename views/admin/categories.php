@@ -95,7 +95,7 @@ if(isset($_POST['catfin']))
 
 <!-- supprimer une catégorie -->
 <h3>Supprimer une catégoie</h3>
-<form action='#' method="POST">
+<form action='#' method="POST" onsubmit="return confirm('Êtes-vous certain de vouloir supprimer cette catégorie ?');">
     <div id="categoriesfinales">
         <select id='catfin' name='catfin'>
            <option value="">---</option>
@@ -111,6 +111,6 @@ if(isset($_POST['catfin']))
     </div>
 
     <div id="supprimercategorie">
-        <button type="submit">Supprimer la catégorie</button>
+        <button type="submit" >Supprimer la catégorie</button>
     </div>
 </form>
