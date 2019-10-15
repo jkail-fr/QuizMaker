@@ -5,15 +5,14 @@
 require_once('../../includes/sqlconnect.php');
 
 
-//récupération de la valeur categorie
+//Ajout d'une nouvelle categorie
 if(isset($_POST['categorie']))
     {
         $newcat = $_POST['categorie'];
         $req = $bdd->prepare('INSERT INTO categories(nom) VALUES(:newcat)');
-        $req-> execute(array(
-        'newcat' => $newcat));
+        $ex = $req-> execute(array('newcat' => $newcat));
+        statutRequete($ex, "catégorie ajoutée", "échec de l'action");
         $req->closeCursor ();
-        echo "categorie ajoutée";
     }
 
 
@@ -24,14 +23,9 @@ if(isset($_POST['newcategorie']))
         $newname = $_POST['newcategorie'];
         $id = $_POST['cat'];
         $req = $bdd->prepare('UPDATE categories SET nom=:newname WHERE id=:id');
-        $req-> execute(array(
-        'newname' => $newname , 'id' => $id));
+        $ex = $req-> execute(array('newname' => $newname , 'id' => $id));
+        statutRequete($ex, "catégorie modifiée", "échec de l'action");
         $req->closeCursor ();
-        echo "catégorie modifiée";
-    }
-    else
-    {
-        echo "catégorie inconnue";
     }
 
 
@@ -41,16 +35,9 @@ if(isset($_POST['catfin']))
     {
         $id = $_POST['catfin'];
         $req = $bdd->prepare('DELETE FROM categories WHERE id=:id');
-        $req-> execute(array('id' => $id));
+        $ex = $req-> execute(array('id' => $id));
+        statutRequete($ex, "catégorie supprimée", "échec de l'action");
         $req->closeCursor ();
-        if($req)
-            {
-                 echo "categorie supprimée";
-            }
-    }
-    else
-    {
-        echo "catégorie inconnue";
     }
 ?>
 

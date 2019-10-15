@@ -16,3 +16,15 @@ catch (Exception $e)
 {
         die('Erreur : ' . $e->getMessage());
 }
+
+function statutRequete($requete, $reussite, $echec)
+{
+        if ($requete == true)
+                {
+                    echo $reussite;
+                }
+            else
+                {
+                    echo $echec;
+                }
+}
