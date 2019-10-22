@@ -16,6 +16,7 @@ pdo requete sur niveaux + categ
 ##Etape facultative : JS - Essayer le drag and drop
 
 
+
 PROCHAINE SESSION :
 0) gérer .gitignore to sqlconnect ;
 
@@ -27,6 +28,20 @@ PROCHAINE SESSION :
 4) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter")
 
 5) Partager un schéma de BDD sur github
+
+6) créer 2 pages différentes pour les questions :
+
+- une page de création de questions (avec case à cocher pour sélectionner les différentes catégories) ;
+
+- une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
+
+
+6bis) lors de la création des questions, on doit pouvoir attribuer un niveau parmi ceux déjà définis sur la apge correspondante (facile, intermediaire, expert) ;
+6ter) lors de la création des questions, on doit pouvoir attribuer une ou plusieurs catégories parmi celles déjà définies sur la apge correspondante (divinités, vie quotidienne, etc.) ;
+
+7) créer la page d'affichage du quizz ;
+
+8) Prévoir le cas des questions sans niveau et/ou sans categorie
 
 
 

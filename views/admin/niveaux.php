@@ -47,7 +47,7 @@ if(isset($_POST['levelfin']))
 <h2>Ajouter un niveau</h2>
 
 <form action='#' method="POST">
-    Categorie : <input type="text" value="" name="level" placeholder="votre nouveau niveau"/>
+    Niveau : <input type="text" value="" name="level" placeholder="votre nouveau niveau"/>
     <button type="submit">Ajouter</button>
 </form>
 <hr>
