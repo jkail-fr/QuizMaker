@@ -22,16 +22,11 @@ PROCHAINE SESSION :
 
 1) Mettre des "include" partout <=> au fur et à mesure : OK ;
 
-3) dupliquer modèle catégorie pour questions.
-3ter) lier les questions aux niveaux
-
 4) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter")
 
 5) Partager un schéma de BDD sur github
 
 6) créer 2 pages différentes pour les questions :
-
-- une page de création de questions (avec case à cocher pour sélectionner les différentes catégories) ;
 
 - une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
 
@@ -43,6 +38,10 @@ PROCHAINE SESSION :
 
 8) Prévoir le cas des questions sans niveau et/ou sans categorie
 
+9) Prévoir des boutons de retour à l'accueil... 
+
+10) Fonction qui va récupérer l'ID de la catégorie qui se trouve dans l'array et qui va trouver le nom de la catégorie associé à l'ID, pour ensuite nous retourner le nom.
+10bis) même chose pour les niveaux.
 
 
 
@@ -52,4 +51,9 @@ DONE :
 2bis) Formulaire pour choisir sa catégorie, puis choisir entre un champ "renommer" ou un bouton "supprimer" ;
 2ter) Vérifier si la requête s'est bien exécutée (avant de dire qu'elle l'a été) ;
 
+3) dupliquer modèle catégorie pour questions.
 3bis) dupliquer modèle catégorie pour niveau.
+3ter) lier les questions aux niveaux.
+
+6)
+- une page de création de questions (avec case à cocher pour sélectionner les différentes catégories) ;

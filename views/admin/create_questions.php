@@ -17,7 +17,7 @@ if(isset($_POST['newquestion']))
         $feedback = $_POST['feedback'];
 
         $req = $bdd->prepare("INSERT INTO qanda(question, categorie, niveau, bonne_reponse, facile, intermediaire, expert, feedback) VALUES(:newquest, :selectedcat, :checkedlevel, :trueanswer, :easyanswer, :mediumanswer, :expertanswer, :feedback)");
-        $ex = $req-> execute(array('newquest' => $newquest, 'selectedcat' => serialize($selectedcat), 'checkedlevel' => serialize($checkedlevel), 'trueanswer' => $trueanswer, 'easyanswer' => $easyanswer, 'mediumanswer' => $mediumanswer, 'expertanswer' => $expertanswer, 'feedback' => $feedback));
+        $ex = $req-> execute(array('newquest' => $newquest, 'selectedcat' => json_encode($selectedcat), 'checkedlevel' => json_encode($checkedlevel), 'trueanswer' => $trueanswer, 'easyanswer' => $easyanswer, 'mediumanswer' => $mediumanswer, 'expertanswer' => $expertanswer, 'feedback' => $feedback));
         statutRequete($ex, "nouvelle question ajoutée", "échec de l'action");
     }
 ?>
