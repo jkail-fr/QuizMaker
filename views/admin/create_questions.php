@@ -8,17 +8,17 @@ require_once('../../includes/sqlconnect.php');
 if(isset($_POST['newquestion']))
     {
         $newquest = $_POST['newquestion'];
-        $req = $bdd->prepare("INSERT INTO qanda(question) VALUES(:newquest)");
-        $ex = $req-> execute(array('newquest' => $newquest));
+        $selectedcat = $_POST['categories'];
+        $checkedlevel = $_POST['niveaux'];
+        $trueanswer = $_POST['bonnereponse'];
+        $easyanswer = $_POST['reponsefacile'];
+        $mediumanswer = $_POST['reponseintermediaire'];
+        $expertanswer = $_POST['reponseexpert'];
+        $feedback = $_POST['feedback'];
+
+        $req = $bdd->prepare("INSERT INTO qanda(question, categorie, niveau, bonne_reponse, facile, intermediaire, expert, feedback) VALUES(:newquest, :selectedcat, :checkedlevel, :trueanswer, :easyanswer, :mediumanswer, :expertanswer, :feedback)");
+        $ex = $req-> execute(array('newquest' => $newquest, 'selectedcat' => serialize($selectedcat), 'checkedlevel' => serialize($checkedlevel), 'trueanswer' => $trueanswer, 'easyanswer' => $easyanswer, 'mediumanswer' => $mediumanswer, 'expertanswer' => $expertanswer, 'feedback' => $feedback));
         statutRequete($ex, "nouvelle question ajoutée", "échec de l'action");
-
-        //$checkedcat = $_POST['categories'];
-        //var_dump ($checkedcat);
-
-
-        //$checkedlevel = $_POST['niveaux'];
-        //var_dump ($checkedlevel);
-        //$req->closeCursor ();
     }
 ?>
 
@@ -41,9 +41,8 @@ if(isset($_POST['newquestion']))
 
     <!-- Ajout du texte de la question -->
     <label for="newquestion">1. Entrez votre nouvelle question :</label>
-    <!---<textarea id="newquestion" name="newquestion" placeholder="votre nouvelle question" rows="5" cols="33"></textarea> -->
-    <input type="text" value="" name="newquestion" placeholder="votre nouvelle question"/>
-<hr>
+    <textarea id="newquestion" name="newquestion" placeholder="votre nouvelle question" rows="5" cols="33"></textarea>
+    <hr>
 
     <!-- Choix de la catégorie de chaque question -->
     Choisissez la ou les catégorie(s) correspondant à votre question : <br><br>
@@ -55,7 +54,7 @@ if(isset($_POST['newquestion']))
                 }
             $reponse->closeCursor ();
     ?>
-<hr>
+    <hr>
 
     <!-- Choix du niveau de chaque question -->
     Choisissez le ou les niveau(x) correspondant à votre question : <br><br>
@@ -69,8 +68,20 @@ if(isset($_POST['newquestion']))
     ?>
    <hr>
 
-        <button type="submit">Ajouter</button>
+    <input type="text" value="" name="bonnereponse" size = "50" placeholder="bonne réponse"/>
+    <hr>
+
+    <input type="text" value="" name="reponsefacile" size = "50" placeholder="réponse facile"/>
+    <hr>
+
+    <input type="text" value="" name="reponseintermediaire" size = "50" placeholder="réponse intermédiaire"/>
+    <hr>
+
+    <input type="text" value="" name="reponseexpert" size = "50" placeholder="réponse expert"/>
+    <hr>
+
+    <textarea id="feedback" name="feedback" placeholder="votre feedback" rows="10" cols="66"></textarea>
+    <hr>
+    <button type="submit">Ajouter</button>
 
 </form>
-
-
