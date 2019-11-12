@@ -17,6 +17,7 @@ pdo requete sur niveaux + categ
 
 
 
+
 PROCHAINE SESSION :
 0) gérer .gitignore to sqlconnect ;
 
@@ -30,10 +31,6 @@ PROCHAINE SESSION :
 
 - une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
 
-
-6bis) lors de la création des questions, on doit pouvoir attribuer un niveau parmi ceux déjà définis sur la apge correspondante (facile, intermediaire, expert) ;
-6ter) lors de la création des questions, on doit pouvoir attribuer une ou plusieurs catégories parmi celles déjà définies sur la apge correspondante (divinités, vie quotidienne, etc.) ;
-
 7) créer la page d'affichage du quizz ;
 
 8) Prévoir le cas des questions sans niveau et/ou sans categorie
@@ -42,6 +39,7 @@ PROCHAINE SESSION :
 
 10) Fonction qui va récupérer l'ID de la catégorie qui se trouve dans l'array et qui va trouver le nom de la catégorie associé à l'ID, pour ensuite nous retourner le nom.
 10bis) même chose pour les niveaux.
+
 
 
 
@@ -55,5 +53,6 @@ DONE :
 3bis) dupliquer modèle catégorie pour niveau.
 3ter) lier les questions aux niveaux.
 
-6)
-- une page de création de questions (avec case à cocher pour sélectionner les différentes catégories) ;
+6) création d'une page de création de questions (avec case à cocher pour sélectionner les différentes catégories) ;
+6bis) lors de la création des questions, on doit pouvoir attribuer un niveau parmi ceux déjà définis sur la page correspondante (facile, intermediaire, expert) ;
+6ter) lors de la création des questions, on doit pouvoir attribuer une ou plusieurs catégories parmi celles déjà définies sur la apge correspondante (divinités, vie quotidienne, etc.) ;
