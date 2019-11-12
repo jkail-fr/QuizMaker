@@ -91,7 +91,7 @@ if(isset($_POST['levelfin']))
             $reponse = $bdd->query('SELECT * FROM `niveaux` ORDER BY nom ASC');
             while($donnees = $reponse->fetch())
                 {
-                    echo '<option value="'.$donnees['ID'].'">' . $donnees['nom'] . '</option>' ;
+                    echo '<option value="'.$donnees['ID_Niv'].'">' . $donnees['nom'] . '</option>' ;
                 }
             $reponse->closeCursor ();
             ?>

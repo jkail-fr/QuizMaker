@@ -47,10 +47,10 @@ if(isset($_POST['newquestion']))
     <!-- Choix de la catégorie de chaque question -->
     Choisissez la ou les catégorie(s) correspondant à votre question : <br><br>
     <?php
-            $reponse = $bdd->query('SELECT * FROM `categories` ORDER BY nom ASC');
+            $reponse = $bdd->query('SELECT * FROM `categories` ORDER BY noms ASC');
             while($donnees = $reponse->fetch())
                 {
-                    echo '<input type="checkbox" name="categories[]" value="'.$donnees['ID'].'">' . $donnees['nom'] . '<br>';
+                    echo '<input type="checkbox" name="categories[]" value="'.$donnees['ID_Cat'].'">' . $donnees['noms'] . '<br>';
                 }
             $reponse->closeCursor ();
     ?>
@@ -59,10 +59,10 @@ if(isset($_POST['newquestion']))
     <!-- Choix du niveau de chaque question -->
     Choisissez le ou les niveau(x) correspondant à votre question : <br><br>
     <?php
-            $reponse = $bdd->query('SELECT * FROM `niveaux` ORDER BY ID ASC');
+            $reponse = $bdd->query('SELECT * FROM `niveaux` ORDER BY ID_Niv ASC');
             while($donnees = $reponse->fetch())
                 {
-                    echo '<input type="checkbox" name="niveaux[]" value="'.$donnees['ID'].'">' . $donnees['nom'] . '<br>';
+                    echo '<input type="checkbox" name="niveaux[]" value="'.$donnees['ID_Niv'].'">' . $donnees['nom'] . '<br>';
                 }
             $reponse->closeCursor ();
     ?>

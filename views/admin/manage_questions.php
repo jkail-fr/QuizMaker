@@ -29,18 +29,46 @@ require_once('../../includes/sqlconnect.php');
 
             <tr>
                 <td><a href='#'> Modifier </a></td>
+
                 <td><?php echo $donnees['question']; ?></td>
-                <td>
-                    <?php
-                    //    $toto = json_decode($donnees['categorie']);
-                    //    var_dump ($toto);
-                    ?></td>
-                <td><?php echo $donnees['niveau']; ?></td>
+
+                <td><?php
+                    $decodecat = json_decode($donnees['categorie']);
+                    foreach ($decodecat as $element)
+                    {
+                        $nomcateg = $bdd->query('SELECT noms FROM `categories` WHERE ID_Cat = "'.$element.'"');
+                        while($donneescat = $nomcateg->fetch())
+                        {
+                            echo $donneescat['noms'] . '<br />';
+                        }
+                    }
+                    $nomcateg->closeCursor ();
+                ?> </td>
+
+                <td><?php
+                    $decodeniv = json_decode($donnees['niveau']);
+                    foreach ($decodeniv as $element)
+                    {
+                        $nomniv = $bdd->query('SELECT nom FROM `niveaux` WHERE ID_Niv = "'.$element.'"');
+                        while($donneesniv = $nomniv->fetch())
+                        {
+                            echo $donneesniv['nom'] . '<br />';
+                        }
+                    }
+                    $nomniv->closeCursor ();
+                ?></td>
+
                 <td><?php echo $donnees['bonne_reponse']; ?></td>
+
                 <td><?php echo $donnees['facile']; ?></td>
+
                 <td><?php echo $donnees['intermediaire']; ?></td>
+
                 <td><?php echo $donnees['expert']; ?></td>
+
                 <td><?php echo $donnees['feedback']; ?></td>
+
+                <td><a href='#'> Supprimer </a></td>
             </tr>
 
         <?php

@@ -63,10 +63,10 @@ if(isset($_POST['catfin']))
         <select id='categorie' name='cat'>
            <option value="">---</option>
             <?php
-            $reponse = $bdd->query('SELECT * FROM `categories` ORDER BY nom ASC');
+            $reponse = $bdd->query('SELECT * FROM `categories` ORDER BY noms ASC');
             while($donnees = $reponse->fetch())
                 {
-                    echo '<option value="'.$donnees['ID'].'">' . $donnees['nom'] . '</option>' ;
+                    echo '<option value="'.$donnees['ID_Cat'].'">' . $donnees['noms'] . '</option>' ;
                 }
             $reponse->closeCursor ();
             ?>
@@ -87,10 +87,10 @@ if(isset($_POST['catfin']))
         <select id='catfin' name='catfin'>
            <option value="">---</option>
             <?php
-            $reponse = $bdd->query('SELECT * FROM `categories` ORDER BY nom ASC');
+            $reponse = $bdd->query('SELECT * FROM `categories` ORDER BY noms ASC');
             while($donnees = $reponse->fetch())
                 {
-                    echo '<option value="'.$donnees['ID'].'">' . $donnees['nom'] . '</option>' ;
+                    echo '<option value="'.$donnees['ID_Cat'].'">' . $donnees['noms'] . '</option>' ;
                 }
             $reponse->closeCursor ();
             ?>
