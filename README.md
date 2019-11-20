@@ -41,6 +41,12 @@ PROCHAINE SESSION :
 
 12) le bouton "supprimer" va être un "onsubmit" en Javascript qui va lancer un "delete" si la personne dit "oui".
 
+13) Création des questions : faire que la sélection du niveau se fasse en fonction des réponses remplies : si juste facile, alors facile coché ; si on met du texte dans intermédiaire, ça coche intermédiaire, etc.
+
+14) edit_question : Faire même code pour les niveaux avec read only.
+
+15) Quand on a les niveaux d'affichés, il faudra faire un bouton submit pour faire en sorte que lorsqu'on clique dessus, cela vérifie les données d'origine avec les nouvelles données et cela ne va update que les données modifiées. Vérifier si + simple de tout modifier (écraser les données) ou non.
+
 
 
 
