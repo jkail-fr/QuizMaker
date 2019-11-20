@@ -28,6 +28,10 @@ if (isset($_POST['Modifier']))
 
 <h2> Question à modifier </h2>
 
+<p>
+    <a href="./manage_questions.php"> Retour à la liste des questions</a>
+</p>
+
 <form action='#' method="POST">
     <table>
         <tr>
