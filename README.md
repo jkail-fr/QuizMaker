@@ -37,7 +37,7 @@ PROCHAINE SESSION :
 
 9) Prévoir des boutons de retour à l'accueil... 
 
-11) chaque bouton "modifier" sera un formulaire avec un bouton "submit" qui va renvoyer à une autre page. Le formulaire aura un champ "hidden" qui contiendra l'ID de la question et quand on va cliquer sur le bouton modifier, cela va balancer l'ID à la page qui va récupérer les données (les afficher) puis les mettre dans un champ texte puis avoir un bouton pour faire l'update et enfin avoir un code qui vérifie si le cham pest identique à celui déjà en BDD (pour éviter de charger la page avec des requêtes).
+11) chaque bouton "modifier" sera un formulaire avec un bouton "submit" qui va renvoyer à une autre page. Le formulaire aura un champ "hidden" qui contiendra l'ID de la question et quand on va cliquer sur le bouton modifier, cela va balancer l'ID à la page qui va récupérer les données (les afficher) puis les mettre dans un champ texte puis avoir un bouton pour faire l'update et enfin avoir un code qui vérifier si le champ est identique à celui déjà en BDD (pour éviter de charger la page avec des requêtes).
 
 12) le bouton "supprimer" va être un "onsubmit" en Javascript qui va lancer un "delete" si la personne dit "oui".
 
@@ -47,7 +47,8 @@ PROCHAINE SESSION :
 
 15) Quand on a les niveaux d'affichés, il faudra faire un bouton submit pour faire en sorte que lorsqu'on clique dessus, cela vérifie les données d'origine avec les nouvelles données et cela ne va update que les données modifiées. Vérifier si + simple de tout modifier (écraser les données) ou non.
 
-
+16) https://stackoverflow.com/questions/35976029/including-my-connection-php-in-a-function-doesnt-work-php
+À LIRE pour résoudre le Problème de connexion à la BDD dans la fonction update !
 
 
 DONE : 
