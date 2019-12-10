@@ -21,11 +21,9 @@ pdo requete sur niveaux + categ
 PROCHAINE SESSION :
 0) gérer .gitignore to sqlconnect ;
 
-1) Mettre des "include" partout <=> au fur et à mesure : OK ;
+4) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter") ;
 
-4) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter")
-
-5) Partager un schéma de BDD sur github
+5) Partager un schéma de BDD sur github ;
 
 6) créer 2 pages différentes pour les questions :
 
@@ -33,7 +31,7 @@ PROCHAINE SESSION :
 
 7) créer la page d'affichage du quizz ;
 
-8) Prévoir le cas des questions sans niveau et/ou sans categorie
+8) Prévoir le cas des questions sans niveau et/ou sans categorie ;
 
 9) Prévoir des boutons de retour à l'accueil... 
 
@@ -47,11 +45,14 @@ PROCHAINE SESSION :
 
 15) Quand on a les niveaux d'affichés, il faudra faire un bouton submit pour faire en sorte que lorsqu'on clique dessus, cela vérifie les données d'origine avec les nouvelles données et cela ne va update que les données modifiées. Vérifier si + simple de tout modifier (écraser les données) ou non.
 
-16) https://stackoverflow.com/questions/35976029/including-my-connection-php-in-a-function-doesnt-work-php
-À LIRE pour résoudre le Problème de connexion à la BDD dans la fonction update !
+16) VERIFIER pourquoi la page manage_question ne marche plus...
+
+
 
 
 DONE : 
+
+1) Mettre des "include" partout <=> au fur et à mesure : OK ;
 
 2) création d'un formulaire de création de catégories ;
 2bis) Formulaire pour choisir sa catégorie, puis choisir entre un champ "renommer" ou un bouton "supprimer" ;
