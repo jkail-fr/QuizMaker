@@ -117,7 +117,7 @@ if (isset($_POST['Modifier']) OR (isset($_POST['newquestion'])))
     <table>
         <tr>
             <td><label for="question">Question</label> : </td>
-            <td><input id="question" type="text" size ="100%" name="newquestion" value="<?php echo $question; ?>"/></td>
+            <td><input id="question" type="text" size ="100%" name="newquestion" value="<?php echo $question; ?>" required/></td>
         </tr>
 
         <tr>
@@ -172,7 +172,7 @@ if (isset($_POST['Modifier']) OR (isset($_POST['newquestion'])))
 
         <tr>
             <td><label for="bonnereponse">Bonne réponse</label> : </td>
-            <td><input id="bonnereponse" type="text" size ="100%" name="newbonnereponse" value="<?php echo $bonnereponse; ?>"/></td>
+            <td><input id="bonnereponse" type="text" size ="100%" name="newbonnereponse" value="<?php echo $bonnereponse; ?>" required/></td>
         </tr>
 
         <tr>
@@ -192,7 +192,7 @@ if (isset($_POST['Modifier']) OR (isset($_POST['newquestion'])))
 
         <tr>
             <td><label for="feedback">Feedback</label> : </td>
-            <td><input id="feedback" type="text" size ="100%" name="newfeedback" value="<?php echo $feedback; ?>"/></td>
+            <td><input id="feedback" type="text" size ="100%" name="newfeedback" value="<?php echo $feedback; ?>" required/></td>
         </tr>
     </table>
 

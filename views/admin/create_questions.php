@@ -41,7 +41,7 @@ if(isset($_POST['newquestion']))
 
     <!-- Ajout du texte de la question -->
     <label for="newquestion">1. Entrez votre nouvelle question :</label>
-    <textarea id="newquestion" name="newquestion" placeholder="votre nouvelle question" rows="5" cols="33"></textarea>
+    <textarea id="newquestion" name="newquestion" placeholder="votre nouvelle question" rows="5" cols="33" required="required"></textarea>
     <hr>
 
     <!-- Choix de la catégorie de chaque question -->
@@ -68,7 +68,7 @@ if(isset($_POST['newquestion']))
     ?>
    <hr>
 
-    <input type="text" value="" name="bonnereponse" size = "50" placeholder="bonne réponse"/>
+    <input type="text" value="" name="bonnereponse" size = "50" placeholder="bonne réponse" required/>
     <hr>
 
     <input type="text" value="" name="reponsefacile" size = "50" placeholder="réponse facile"/>
@@ -80,7 +80,7 @@ if(isset($_POST['newquestion']))
     <input type="text" value="" name="reponseexpert" size = "50" placeholder="réponse expert"/>
     <hr>
 
-    <textarea id="feedback" name="feedback" placeholder="votre feedback" rows="10" cols="66"></textarea>
+    <textarea id="feedback" name="feedback" placeholder="votre feedback" rows="10" cols="66" required></textarea>
     <hr>
     <button type="submit">Ajouter</button>
 

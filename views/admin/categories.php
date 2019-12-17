@@ -46,7 +46,7 @@ if(isset($_POST['catfin']))
 <h2>Ajouter une catégorie</h2>
 
 <form action='#' method="POST">
-    Categorie : <input type="text" value="" name="categorie" placeholder="votre nouvelle catégorie"/>
+    Categorie : <input type="text" value="" name="categorie" placeholder="votre nouvelle catégorie" required/>
     <button type="submit">Ajouter</button>
 </form>
 <hr>
@@ -74,7 +74,7 @@ if(isset($_POST['catfin']))
     </div>
 
     <div id="modifiercategorie">
-        <input type="text" value="" name="newcategorie" placeholder="renommer la catégorie"/>
+        <input type="text" value="" name="newcategorie" placeholder="renommer la catégorie" required/>
         <button type="submit">Valider</button>
     </div>
 </form>
