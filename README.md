@@ -47,6 +47,8 @@ PROCHAINE SESSION :
 
 16) VERIFIER pourquoi la page manage_question ne marche plus...
 
+17) Ajouter des "require" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
+
 
 
 

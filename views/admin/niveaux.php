@@ -20,10 +20,9 @@ if(isset($_POST['level']))
 if(isset($_POST['newniveau']))
     if($_POST['changelevel'] != null)
     {
-        echo "toto";
         $newname = $_POST['newniveau'];
         $id = $_POST['changelevel'];
-        $req = $bdd->prepare('UPDATE niveaux SET nom=:newname WHERE id=:id');
+        $req = $bdd->prepare('UPDATE niveaux SET nom=:newname WHERE ID_Niv=:id');
         $ex = $req-> execute(array('newname' => $newname , 'id' => $id));
         statutRequete($ex, "niveau modifié", "échec de l'action");
         $req->closeCursor ();
@@ -35,7 +34,7 @@ if(isset($_POST['levelfin']))
     if($_POST['levelfin'] != null)
     {
         $id = $_POST['levelfin'];
-        $req = $bdd->prepare('DELETE FROM niveaux WHERE id=:id');
+        $req = $bdd->prepare('DELETE FROM niveaux WHERE ID_Niv=:id');
         $ex = $req-> execute(array('id' => $id));
         statutRequete($ex, "niveau supprimé", "échec de l'action");
         $req->closeCursor ();
@@ -67,7 +66,7 @@ if(isset($_POST['levelfin']))
             $reponse = $bdd->query('SELECT * FROM `niveaux` ORDER BY nom ASC');
             while($donnees = $reponse->fetch())
                 {
-                    echo '<option value="'.$donnees['ID'].'">' . $donnees['nom'] . '</option>' ;
+                    echo '<option value="'.$donnees['ID_Niv'].'">' . $donnees['nom'] . '</option>' ;
                 }
             $reponse->closeCursor ();
             ?>

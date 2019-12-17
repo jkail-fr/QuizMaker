@@ -24,33 +24,45 @@ if (isset($_POST['newquestion']))
         $question = $_POST['question'];
         updatechampsql($question, $newquestion, $bdd, 'question', $id);
 
-        // remplacement champ categorie
+        // remplacement champ "categorie"
         $newcategorie = $_POST['newchoix'];
         $categorie = $_POST['categorie'];
+        $newcategorieencode = json_encode($newcategorie);
         if ($categorie != $newcategorie)
             {
-                updatechampsql($categorie, $newcategorie, $bdd, 'categorie', $id);
+                updatechampsql($categorie, $newcategorieencode, $bdd, 'categorie', $id);
             }
 
+        //remplacement champ "niveau"
+        $newniveau = $_POST['newniveau'];
+        $niveau = $_POST['niveau'];
+        $newniveauencode = json_encode($newniveau);
+        if ($niveau != $newniveau)
+            {
+                updatechampsql($niveau, $newniveauencode, $bdd, 'niveau', $id);
+            }
 
-        //updatechampsql($niveau, $newquestion, $bdd, 'question', $id);
-
+        //remplacement champ "Bonne réponse"
         $newbonnereponse = $_POST['newbonnereponse'];
         $bonnereponse = $_POST['bonnereponse'];
         updatechampsql($bonnereponse, $newbonnereponse, $bdd, 'bonne_reponse', $id);
 
+        //remplacement champ "Réponse facile"
         $newfacile = $_POST['newfacile'];
         $facile = $_POST['facile'];
         updatechampsql($facile, $newfacile, $bdd, 'facile', $id);
 
+        //remplacement champ "Réponse intermédiaire"
         $newintermediaire = $_POST['newintermediaire'];
         $intermediaire = $_POST['intermediaire'];
         updatechampsql($intermediaire, $newintermediaire, $bdd, 'intermediaire', $id);
 
+        //remplacement champ "Réponse expert"
         $newexpert = $_POST['newexpert'];
         $expert = $_POST['expert'];
         updatechampsql($expert, $newexpert, $bdd, 'expert', $id);
 
+        //remplacement champ "Feedback"
         $newfeedback = $_POST['newfeedback'];
         $feedback = $_POST['feedback'];
         updatechampsql($feedback, $newfeedback, $bdd, 'feedback', $id);
@@ -94,6 +106,7 @@ if (isset($_POST['Modifier']) OR (isset($_POST['newquestion'])))
         <input type="hidden" name="id" value ="<?php echo $id; ?>" />
         <input type="hidden" name="question" value ="<?php echo $question; ?>" />
         <input type="hidden" name="categorie" value ="<?php echo json_decode($donnees['categorie']); ?>" />
+        <input type="hidden" name="niveau" value ="<?php echo json_decode($donnees['niveau']); ?>" />
         <input type="hidden" name="bonnereponse" value ="<?php echo $bonnereponse; ?>" />
         <input type="hidden" name="facile" value ="<?php echo $facile; ?>" />
         <input type="hidden" name="intermediaire" value ="<?php echo $intermediaire; ?>" />
@@ -128,12 +141,33 @@ if (isset($_POST['Modifier']) OR (isset($_POST['newquestion'])))
                         }
                         $reponse->closeCursor ();
                     ?>
+            <br>
             </td>
         </tr>
 
         <tr>
             <td><label for="niveau">Niveau</label> : </td>
-            <td><input id="niveau" type="text" size ="100%" name="newniveau" value=""/></td>
+            <td>
+                <?php
+                    $reponse = $bdd->query('SELECT * FROM `niveaux` ORDER BY ID_Niv ASC');
+                    while($donnees = $reponse->fetch())
+                    {
+                        ?>
+                        <input type="checkbox" id="<?php echo $donnees['ID_Niv']; ?>" name="newniveau[]" value="<?php echo $donnees['ID_Niv']; ?>"
+                               <?php
+                                    if (in_array($donnees['ID_Niv'], $niveau))
+                                        {
+                                          echo "checked";
+                                        }
+                                ?>
+                        />
+                        <label for="<?php echo $donnees['ID_Niv']; ?>"> <?php echo $donnees['nom']; ?> </label><br>
+                        <?php
+                    }
+                    $reponse->closeCursor ();
+                ?>
+            <br>
+            </td>
         </tr>
 
         <tr>

@@ -9,7 +9,7 @@ require_once('../../includes/sqlconnect.php');
 if(isset($_POST['categorie']))
     {
         $newcat = $_POST['categorie'];
-        $req = $bdd->prepare('INSERT INTO categories(nom) VALUES(:newcat)');
+        $req = $bdd->prepare('INSERT INTO categories(noms) VALUES(:newcat)');
         $ex = $req-> execute(array('newcat' => $newcat));
         statutRequete($ex, "catégorie ajoutée", "échec de l'action");
         $req->closeCursor ();
@@ -22,7 +22,7 @@ if(isset($_POST['newcategorie']))
     {
         $newname = $_POST['newcategorie'];
         $id = $_POST['cat'];
-        $req = $bdd->prepare('UPDATE categories SET nom=:newname WHERE id=:id');
+        $req = $bdd->prepare('UPDATE categories SET noms=:newname WHERE ID_Cat=:id');
         $ex = $req-> execute(array('newname' => $newname , 'id' => $id));
         statutRequete($ex, "catégorie modifiée", "échec de l'action");
         $req->closeCursor ();
@@ -34,7 +34,7 @@ if(isset($_POST['catfin']))
     if($_POST['catfin'] != null)
     {
         $id = $_POST['catfin'];
-        $req = $bdd->prepare('DELETE FROM categories WHERE id=:id');
+        $req = $bdd->prepare('DELETE FROM categories WHERE ID_Cat=:id');
         $ex = $req-> execute(array('id' => $id));
         statutRequete($ex, "catégorie supprimée", "échec de l'action");
         $req->closeCursor ();

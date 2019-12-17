@@ -23,12 +23,12 @@ if(isset($_POST['newquestion']))
 ?>
 
  <?php
-            $reponse = $bdd->query('SELECT * FROM `qanda` ORDER BY question ASC');
+            /*$reponse = $bdd->query('SELECT * FROM `qanda` ORDER BY question ASC');
             while($donnees = $reponse->fetch())
                 {
                     echo '<option value="'.$donnees['ID'].'">' . $donnees['question'] . '</option>' ;
                 }
-            $reponse->closeCursor ();
+            $reponse->closeCursor ();*/
 ?>
 
 <h1>Création d'une nouvelle question</h1>
