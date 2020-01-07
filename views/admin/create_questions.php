@@ -3,7 +3,6 @@
 require_once('../../includes/sqlconnect.php');
 
 
-
 //Ajout d'une nouvelle question
 if(isset($_POST['newquestion']))
     {
@@ -30,6 +29,8 @@ if(isset($_POST['newquestion']))
                 }
             $reponse->closeCursor ();*/
 ?>
+
+<a href="index.html" class="retouracceuil"> Retour à l'accueil </a>
 
 <h1>Création d'une nouvelle question</h1>
 

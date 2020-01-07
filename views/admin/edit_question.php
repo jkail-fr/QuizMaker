@@ -94,6 +94,8 @@ if (isset($_POST['Modifier']) OR (isset($_POST['newquestion'])))
         ?>
 
 
+<a href="index.html" class="retouracceuil"> Retour à l'accueil </a>
+
 <h2> Question à modifier </h2>
 
 <p>

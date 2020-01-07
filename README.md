@@ -35,9 +35,7 @@ PROCHAINE SESSION :
 
 9) Prévoir des boutons de retour à l'accueil... (sur toutes les pages !)
 
-12) le bouton "supprimer" va être un "onsubmit" en Javascript qui va lancer un "delete" si la personne dit "oui".
-
-17) Ajouter des "require" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
+17) Ajouter des "required" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
 
 
 
@@ -62,6 +60,8 @@ DONE :
 10bis) même chose pour les niveaux.
 
 11) chaque bouton "modifier" sera un formulaire avec un bouton "submit" qui va renvoyer à une autre page. Le formulaire aura un champ "hidden" qui contiendra l'ID de la question et quand on va cliquer sur le bouton modifier, cela va balancer l'ID à la page qui va récupérer les données (les afficher) puis les mettre dans un champ texte puis avoir un bouton pour faire l'update et enfin avoir un code qui vérifier si le champ est identique à celui déjà en BDD (pour éviter de charger la page avec des requêtes).
+
+12) le bouton "supprimer" va être un "onsubmit" en Javascript qui va lancer un "delete" si la personne dit "oui".
 
 14) edit_question : Faire même code pour les niveaux.
 

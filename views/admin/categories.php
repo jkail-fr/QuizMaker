@@ -42,8 +42,11 @@ if(isset($_POST['catfin']))
 ?>
 
 
+<a href="index.html" class="retouracceuil"> Retour à l'accueil </a>
+
 <!-- création d'une nouvelle catégorie -->
 <h2>Ajouter une catégorie</h2>
+
 
 <form action='#' method="POST">
     Categorie : <input type="text" value="" name="categorie" placeholder="votre nouvelle catégorie" required/>
@@ -81,7 +84,7 @@ if(isset($_POST['catfin']))
 
 
 <!-- supprimer une catégorie -->
-<h3>Supprimer une catégoie</h3>
+<h3>Supprimer une catégorie</h3>
 <form action='#' method="POST" onsubmit="return confirm('Êtes-vous certain de vouloir supprimer cette catégorie ?');">
     <div id="categoriesfinales">
         <select id='catfin' name='catfin'>

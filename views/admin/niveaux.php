@@ -42,6 +42,8 @@ if(isset($_POST['levelfin']))
 ?>
 
 
+<a href="index.html" class="retouracceuil"> Retour à l'accueil </a>
+
 <!-- création d'un nouveau niveau -->
 <h2>Ajouter un niveau</h2>
 
@@ -81,7 +83,7 @@ if(isset($_POST['levelfin']))
 
 
 <!-- supprimer une catégorie -->
-<h3>Supprimer une catégoie</h3>
+<h3>Supprimer une catégorie</h3>
 <form action='#' method="POST" onsubmit="return confirm('Êtes-vous certain de vouloir supprimer cette catégorie ?');">
     <div id="categoriesfinales">
         <select id='levelfin' name='levelfin'>

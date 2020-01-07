@@ -1,11 +1,24 @@
 <?php
 // connexion à la BDD
 require_once('../../includes/sqlconnect.php');
+
+// supression d'une question
+if(isset($_POST['delete']))
+    if($_POST['delete'] != null)
+        {
+            $id = $_POST['delete'];
+            $req = $bdd->prepare('DELETE FROM qanda WHERE ID=:id');
+            $ex = $req-> execute(array('id' => $id));
+            statutRequete($ex, "question supprimée", "échec de l'action");
+            $req->closeCursor ();
+        }
 ?>
+
+<a href="index.html" class="retouracceuil"> Retour à l'accueil </a>
 
 <h1>Gestion des questions</h1>
 
-<form action="edit_question.php" method="post">
+
     <table>
         <thead>
             <tr>
@@ -30,7 +43,9 @@ require_once('../../includes/sqlconnect.php');
 
                 <tr>
                     <td>
+                        <form action="edit_question.php" method="post" name="modifier">
                         <button type="submit" name="Modifier" value="<?php echo $donnees['ID']; ?>"> Modifier </button>
+                        </form>
                     </td>
 
                     <td><?php echo $donnees['question']; ?></td>
@@ -71,7 +86,14 @@ require_once('../../includes/sqlconnect.php');
 
                     <td><?php echo $donnees['feedback']; ?></td>
 
-                    <td><a href='#'> Supprimer </a></td>
+                    <td>
+                        <form action='#' method="POST" onsubmit="return confirm('Êtes-vous certain de vouloir supprimer cette question ?');" name="supprimer">
+                            <div id="supprimerquestion">
+                                <button type="submit" name ="delete" value="<?php echo $donnees['ID']; ?>">Supprimer</button>
+                            </div>
+                        </form>
+                    </td>
+
                 </tr>
 
             <?php
@@ -80,4 +102,3 @@ require_once('../../includes/sqlconnect.php');
             ?>
         </tbody>
     </table>
-</form>
