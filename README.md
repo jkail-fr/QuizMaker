@@ -31,12 +31,9 @@ PROCHAINE SESSION :
 
 7) créer la page d'affichage du quizz ;
 
-8) Prévoir le cas des questions sans niveau et/ou sans categorie ;
-
-9) Prévoir des boutons de retour à l'accueil... (sur toutes les pages !)
-
 17) Ajouter des "required" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
 
+18) if isset pour niveau et catégorie ; un if isset catégorie aléatoire ; un if isset rien. 
 
 
 
@@ -55,6 +52,10 @@ DONE :
 6) création d'une page de création de questions (avec case à cocher pour sélectionner les différentes catégories) ;
 6bis) lors de la création des questions, on doit pouvoir attribuer un niveau parmi ceux déjà définis sur la page correspondante (facile, intermediaire, expert) ;
 6ter) lors de la création des questions, on doit pouvoir attribuer une ou plusieurs catégories parmi celles déjà définies sur la apge correspondante (divinités, vie quotidienne, etc.) ;
+
+8) Prévoir le cas des questions sans niveau et/ou sans categorie = pas prévu au final ;-) ;
+
+9) Prévoir des boutons de retour à l'accueil... (sur toutes les pages !)
 
 10) Fonction qui va récupérer l'ID de la catégorie qui se trouve dans l'array et qui va trouver le nom de la catégorie associé à l'ID, pour ensuite nous retourner le nom.
 10bis) même chose pour les niveaux.
