@@ -8,15 +8,54 @@ require_once('includes/sqlconnect.php');
 
 //Affichage questions pour quizz
 
-if(isset($_POST['cat']) AND isset ($_POST['niv']))
+if((isset($_POST['cat']) AND isset ($_POST['niv']) AND $_POST['cat'] == "random"))
+        {
+            $i = 0;
+            $questionmax = 4;
+            $result = $bdd->query('SELECT * FROM `qanda` WHERE niveau LIKE "%'.$_POST['niv'].'%" ORDER BY RAND()');
+            while($donnees = $result->fetch() AND $i<=$questionmax)
+            {
+                switch ($_POST['niv'])
+                {
+                    case 1 : echo $donnees['question'].'<br>'.$donnees['bonne_reponse'].'<br>'.$donnees['facile'] ;
+                    break;
+
+                    case 2 : echo $donnees['question'].'<br>'.$donnees['bonne_reponse'].'<br>'.$donnees['facile'].'<br>'.$donnees['intermediaire'] ;
+                    break;
+
+                    case 3 : echo $donnees['question'].'<br>'.$donnees['bonne_reponse'].'<br>'.$donnees['facile'].'<br>'.$donnees['intermediaire'].'<br>'.$donnees['expert'] ;
+                    break;
+
+                }
+
+                $i++;
+            }
+        }
+
+
+else if(isset($_POST['cat']) AND isset ($_POST['niv']))
     {
         // echo 5 questions parmi la catégorie et le niveau retenus
-        $result = $bdd->query('SELECT * FROM `qanda` WHERE categorie='.$_POST['cat'].' AND niveau='.$_POST['niv'].'');
-        while($donnees = $result->fetch())
+        $i = 0;
+        $questionmax = 4;
+        $result = $bdd->query('SELECT * FROM `qanda` WHERE categorie LIKE "%'.$_POST['cat'].'%" AND niveau LIKE "%'.$_POST['niv'].'%" ORDER BY RAND()');
+        while($donnees = $result->fetch() AND $i<=$questionmax)
             {
-                echo $donnees['question'];
+                switch ($_POST['niv'])
+                {
+                    case 1 : echo $donnees['question'].'<br>'.$donnees['bonne_reponse'].'<br>'.$donnees['facile'] ;
+                    break;
+
+                    case 2 : echo $donnees['question'].'<br>'.$donnees['bonne_reponse'].'<br>'.$donnees['facile'].'<br>'.$donnees['intermediaire'] ;
+                    break;
+
+                    case 3 : echo $donnees['question'].'<br>'.$donnees['bonne_reponse'].'<br>'.$donnees['facile'].'<br>'.$donnees['intermediaire'].'<br>'.$donnees['expert'] ;
+                    break;
+
+                }
+
+                $i++;
             }
-        //var_dump($result);
     }
 
 else

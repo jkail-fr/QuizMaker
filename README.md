@@ -29,11 +29,8 @@ PROCHAINE SESSION :
 
 - une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
 
-7) créer la page d'affichage du quizz ;
+19) clic de l'utilisateur pour valider chacune de ses réponses ; afficher le résultat (bonne réponse = vert ; mauvaise réponse (si sélectionnée) en rouge) ; donner le feedback ! En JS
 
-17) Ajouter des "required" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
-
-18) if isset pour niveau et catégorie ; un if isset catégorie aléatoire ; un if isset rien. 
 
 
 
@@ -53,6 +50,8 @@ DONE :
 6bis) lors de la création des questions, on doit pouvoir attribuer un niveau parmi ceux déjà définis sur la page correspondante (facile, intermediaire, expert) ;
 6ter) lors de la création des questions, on doit pouvoir attribuer une ou plusieurs catégories parmi celles déjà définies sur la apge correspondante (divinités, vie quotidienne, etc.) ;
 
+7) créer la page d'affichage du quizz ;
+
 8) Prévoir le cas des questions sans niveau et/ou sans categorie = pas prévu au final ;-) ;
 
 9) Prévoir des boutons de retour à l'accueil... (sur toutes les pages !)
@@ -67,3 +66,7 @@ DONE :
 14) edit_question : Faire même code pour les niveaux.
 
 15) Quand on a les niveaux d'affichés, il faudra faire un bouton submit pour faire en sorte que lorsqu'on clique dessus, cela vérifie les données d'origine avec les nouvelles données et cela ne va update que les données modifiées. Vérifier si + simple de tout modifier (écraser les données) ou non.
+
+17) Ajouter des "required" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
+
+18) if isset pour niveau et catégorie ; un if isset catégorie aléatoire ; un if isset rien. 
