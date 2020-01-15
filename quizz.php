@@ -10,7 +10,13 @@ require_once('includes/sqlconnect.php');
 
 if(isset($_POST['cat']) AND isset ($_POST['niv']))
     {
-        echo "toto";
+        // echo 5 questions parmi la catégorie et le niveau retenus
+        $result = $bdd->query('SELECT * FROM `qanda` WHERE categorie='.$_POST['cat'].' AND niveau='.$_POST['niv'].'');
+        while($donnees = $result->fetch())
+            {
+                echo $donnees['question'];
+            }
+        //var_dump($result);
     }
 
 else
