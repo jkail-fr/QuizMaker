@@ -30,8 +30,8 @@ PROCHAINE SESSION :
 - une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
 
 19) clic de l'utilisateur pour valider chacune de ses réponses ; afficher le résultat (bonne réponse = vert ; mauvaise réponse (si sélectionnée) en rouge) ; donner le feedback ! En JS
-
-
+Bouton submit à faire pour envoyer les réponses ; comparer les réponses avec la colonne "bonne_reponse" ; renvoyer le résultat et afficher le feedback.
+Boucler si la même page ou nreovyer sur une autre ? 
 
 
 DONE : 
