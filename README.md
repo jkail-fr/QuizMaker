@@ -31,7 +31,9 @@ PROCHAINE SESSION :
 
 19) clic de l'utilisateur pour valider chacune de ses réponses ; afficher le résultat (bonne réponse = vert ; mauvaise réponse (si sélectionnée) en rouge) ; donner le feedback ! En JS
 Bouton submit à faire pour envoyer les réponses ; comparer les réponses avec la colonne "bonne_reponse" ; renvoyer le résultat et afficher le feedback.
-Boucler si la même page ou nreovyer sur une autre ? 
+Boucler si la même page ou renvoyer sur une autre ? 
+
+20) afficher les propositions de réponse dans un ordre aléatoire ;-) (pour éviter que qq'un clique toujours sur la 1re réponse)
 
 
 DONE : 
