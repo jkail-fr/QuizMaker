@@ -42,46 +42,30 @@ require_once('views/include/body.php');?>
             $i = 0;
             $questionmax = 10;
             while($donnees = $result->fetch() AND $i<=$questionmax)
+	            $$donnees['ID'] =
+                    [
+                    $donnees['ID'],
+		            $donnees['feedback'],
+		            $donnees['question']
+                    ];
 
                 switch ($_POST['niv'])
                     {
                         case 1 :
-                            $$donnees['ID'] =
-                                [
-                                    $donnees['ID'],
-                                    $donnees['feedback'],
-                                    $donnees['question'],
-                                    $donnees['bonne_reponse'],
-                                    $donnees['facile']
-                                ];
+	                        array_push($$donnees['ID'],$donnees['bonne_reponse'],$donnees['facile'] );
                         break;
 
                         case 2 :
-                            $$donnees['ID'] =
-                                [
-                                    $donnees['ID'],
-                                    $donnees['feedback'],
-                                    $donnees['question'],
-                                    $donnees['bonne_reponse'],
-                                    $donnees['facile'],
-                                    $donnees['intermediaire']
-                                ];
+	                        array_push($$donnees['ID'],$donnees['bonne_reponse'],$donnees['facile'],$donnees['intermediaire'] );
                         break;
 
                         case 3 :
-                            $$donnees['ID'] =
-                                [
-                                    $donnees['ID'],
-                                    $donnees['feedback'],
-                                    $donnees['question'],
-                                    $donnees['bonne_reponse'],
-                                    $donnees['facile'],
-                                    $donnees['intermediaire'],
-                                    $donnees['expert']
-                                ];
+	                        array_push($$donnees['ID'],$donnees['bonne_reponse'],$donnees['facile'],$donnees['intermediaire'],$donnees['expert'] );
                         break;
-
                     }
+                    $generation_question = array_slice($$donnees['ID'], 3);
+                var_dump($generation_question);
+                var_dump($$donnees['ID']);
                 $i++;
         }
 
