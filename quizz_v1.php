@@ -42,76 +42,33 @@ require_once('views/include/body.php');?>
             $i = 0;
             $questionmax = 10;
             while($donnees = $result->fetch() AND $i<=$questionmax)
-                {?>
-                <div class="newquestion">
-                <?php
-                    switch ($_POST['niv'])
+	            ${$i} =
+                    [
+                    $donnees['ID'],
+		            $donnees['feedback'],
+		            $donnees['question']
+                    ];
+
+                switch ($_POST['niv'])
                     {
-                        case 1 :?>
-                        <div>
-                            <div class="question">
-                                <?= $donnees['question']?> <br>
-                            </div>
+                        case 1 :
+                        array_push(${$i}, $donnees['bonne_reponse'], $donnees['facile']);
+                        var_dump($donnees['bonne_reponse']);
 
-                            <div class="reponse">
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['bonne_reponse']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['bonne_reponse']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['facile']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['facile']?></label><br>
-                                <br>
-                            </div>
-                        </div>
-                        <?php break;
+                        break;
 
-                        case 2 : ?>
-                        <div>
-                            <div class="question">
-                                 <?= $donnees['question']?> <br>
-                            </div>
+                        case 2 :
+	                        array_push(${$i},$donnees['bonne_reponse'],$donnees['facile'],$donnees['intermediaire']);
+                        break;
 
-                            <div class="reponse">
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['bonne_reponse']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['bonne_reponse']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['facile']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['facile']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['intermediaire']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['intermediaire']?></label><br>
-                                <br>
-                            </div>
-                        </div>
-                        <?php break;
-
-                        case 3 : ?>
-                        <div>
-                            <div class="question">
-                                 <?= $donnees['question']?> <br>
-                            </div>
-
-                            <div class="reponse">
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['bonne_reponse']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['bonne_reponse']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['facile']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['facile']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['intermediaire']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['intermediaire']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['expert']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['expert']?></label><br>
-                                <br>
-                            </div>
-                        </div>
-                        <?php break;
+                        case 3 :
+	                        array_push(${$i},$donnees['bonne_reponse'],$donnees['facile'],$donnees['intermediaire'],$donnees['expert']);
+                        break;
                     }
-                ?>
-                </div>
-                <?php
-                    $i++;
-                }
+                    $generation_question = array_slice(${$i}, 3);
+        var_dump(${$i});
+        //var_dump($generation_question);
+                $i++;
         }
 
 require_once('views/include/end.php');
