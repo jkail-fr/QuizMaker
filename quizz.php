@@ -34,85 +34,81 @@ require_once('views/include/body.php');?>
     if (!isset($_POST['cat']) OR !isset($_POST['niv']))
         {
             echo "Vous n'avez pas sélectionné de niveau et/ou de catégorie";
-
         }
     // cas d'une personne sélectionnant correctement le quizz
     else
         {
             $i = 0;
             $questionmax = 10;
+            $currentQuizz = [];
+
+            // Récupère les données des questions et les stocke dans un array
             while($donnees = $result->fetch() AND $i<=$questionmax)
-                {?>
-                <div class="newquestion">
-                <?php
+                {
                     switch ($_POST['niv'])
-                    {
-                        case 1 :?>
-                        <div>
-                            <div class="question">
-                                <?= $donnees['question']?> <br>
-                            </div>
+                        {
+                            case 1 :
+                            $easyQuizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile']];
+                            $currentQuizz[$i] = $easyQuizz;
+                            break;
 
-                            <div class="reponse">
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['bonne_reponse']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['bonne_reponse']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['facile']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['facile']?></label><br>
-                                <br>
-                            </div>
-                        </div>
-                        <?php break;
+                            case 2 :
+                            $mediumQuizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile'], $donnees['intermediaire']];
+                            $currentQuizz[$i] = $mediumQuizz;
+                            break;
 
-                        case 2 : ?>
-                        <div>
-                            <div class="question">
-                                 <?= $donnees['question']?> <br>
-                            </div>
-
-                            <div class="reponse">
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['bonne_reponse']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['bonne_reponse']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['facile']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['facile']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['intermediaire']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['intermediaire']?></label><br>
-                                <br>
-                            </div>
-                        </div>
-                        <?php break;
-
-                        case 3 : ?>
-                        <div>
-                            <div class="question">
-                                 <?= $donnees['question']?> <br>
-                            </div>
-
-                            <div class="reponse">
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['bonne_reponse']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['bonne_reponse']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['facile']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['facile']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['intermediaire']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['intermediaire']?></label><br>
-                                <br>
-                                <input type="radio" name="<?= $donnees['ID']?>" value="<?= $donnees['expert']?>">
-                                <label for="<?= $donnees['ID']?>"><?= $donnees['expert']?></label><br>
-                                <br>
-                            </div>
-                        </div>
-                        <?php break;
-                    }
-                ?>
-                </div>
-                <?php
+                            case 3 :
+                            $hardQuizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile'], $donnees['intermediaire'], $donnees['expert']];
+                            $currentQuizz[$i] = $hardQuizz;
+                            break;
+                        }
                     $i++;
                 }
-        }
 
+            // Créé la boucle générale qui va permettre de gérer l'affichage
+            $j = 0;
+            while($j < count($currentQuizz))
+                {?>
+
+                    <div class="newquestion">
+                        <div class="question">
+                                <hr> <!-- à enlever à la fin -->
+                                <?= $currentQuizz[$j][2]?> <br>
+                        </div>
+<?php
+
+                    // On récupère les index des questions dans l'array
+                    $reponseaffichage = array_slice($currentQuizz[$j], 3);
+                    shuffle($reponseaffichage);
+                    var_dump($reponseaffichage); ?>
+
+<!-- arriver à afficher les réponses dans les "cases" (cf. foreach) et comment vérifier la bonne réponse ? (comparaison de valeur) -->
+                        <div class="reponse">
+                            <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][3]?>">
+                            <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][3]?></label><br>
+                            <br>
+                            <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][4]?>">
+                            <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][4]?></label><br>
+                            <br>
+                            <?php if(isset($currentQuizz[$j][5]))
+                            { ?>
+                                <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][5]?>">
+                                <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][5]?></label><br>
+                                <br>
+                            <?php
+                            }
+                            if(isset($currentQuizz[$j][6]))
+                            { ?>
+                                <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][6]?>">
+                                <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][6]?></label><br>
+                            <?php
+                            } ?>
+                            <br> -->
+                        </div>
+                    </div>
+                <?php
+                $j++;
+                }
+        }
 require_once('views/include/end.php');
 ?>

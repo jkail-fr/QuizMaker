@@ -35,6 +35,8 @@ Boucler si la même page ou renvoyer sur une autre ?
 
 20) afficher les propositions de réponse dans un ordre aléatoire ;-) (pour éviter que qq'un clique toujours sur la 1re réponse)
 
+21) gérer le mode "aléatoire" (notamment comment analyser les réponses données par l'utilisateur).
+
 
 DONE : 
 

@@ -1,13 +1,11 @@
 <!-- Partie PHP -->
-
 <?php
+
 // connexion à la BDD
 require_once('includes/sqlconnect.php');
 ?>
 
-
 <!-- Partie HTML -->
-
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +25,7 @@ require_once('includes/sqlconnect.php');
 
            <!-- Paragraphe de présentation de la page -->
             <p>
-                (phrase d'accueil)
+                (phrase d'accueil : blablabla)
             </p>
        </header>
 
