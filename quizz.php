@@ -19,7 +19,6 @@ else
         $result = $bdd->query('SELECT * FROM `qanda` WHERE categorie LIKE "%'.$_POST['cat'].'%" AND niveau LIKE "%'.$_POST['niv'].'%" ORDER BY RAND()');
     }
 
-
 require_once('views/include/head.php');
 echo '<link rel="stylesheet" href="css/quizz.css" />';
 echo '<title> Mon titre </title>';
@@ -48,18 +47,18 @@ require_once('views/include/body.php');?>
                     switch ($_POST['niv'])
                         {
                             case 1 :
-                            $easyQuizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile']];
-                            $currentQuizz[$i] = $easyQuizz;
+                            $quizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile']];
+                            $currentQuizz[$i] = $quizz;
                             break;
 
                             case 2 :
-                            $mediumQuizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile'], $donnees['intermediaire']];
-                            $currentQuizz[$i] = $mediumQuizz;
+                            $quizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile'], $donnees['intermediaire']];
+                            $currentQuizz[$i] = $quizz;
                             break;
 
                             case 3 :
-                            $hardQuizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile'], $donnees['intermediaire'], $donnees['expert']];
-                            $currentQuizz[$i] = $hardQuizz;
+                            $quizz = [$donnees['ID'], $donnees['feedback'], $donnees['question'], $donnees['bonne_reponse'], $donnees['facile'], $donnees['intermediaire'], $donnees['expert']];
+                            $currentQuizz[$i] = $quizz;
                             break;
                         }
                     $i++;
@@ -69,46 +68,46 @@ require_once('views/include/body.php');?>
             $j = 0;
             while($j < count($currentQuizz))
                 {?>
-
                     <div class="newquestion">
                         <div class="question">
                                 <hr> <!-- à enlever à la fin -->
                                 <?= $currentQuizz[$j][2]?> <br>
                         </div>
-<?php
-
+                <?php
                     // On récupère les index des questions dans l'array
                     $reponseaffichage = array_slice($currentQuizz[$j], 3);
                     shuffle($reponseaffichage);
-                    var_dump($reponseaffichage); ?>
 
-<!-- arriver à afficher les réponses dans les "cases" (cf. foreach) et comment vérifier la bonne réponse ? (comparaison de valeur) -->
+                    $test = array($reponseaffichage);
+
+                    foreach($test as $value) {?>
                         <div class="reponse">
                             <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][3]?>">
-                            <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][3]?></label><br>
+                            <label for="<?= $currentQuizz[$j][0]?>"><?= $value[0]?></label><br>
                             <br>
                             <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][4]?>">
-                            <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][4]?></label><br>
+                            <label for="<?= $currentQuizz[$j][0]?>"><?= $value[1]?></label><br>
                             <br>
                             <?php if(isset($currentQuizz[$j][5]))
                             { ?>
                                 <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][5]?>">
-                                <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][5]?></label><br>
+                                <label for="<?= $currentQuizz[$j][0]?>"><?= $value[2]?></label><br>
                                 <br>
                             <?php
                             }
                             if(isset($currentQuizz[$j][6]))
                             { ?>
                                 <input type="radio" name="<?= $currentQuizz[$j][0]?>" value="<?= $currentQuizz[$j][6]?>">
-                                <label for="<?= $currentQuizz[$j][0]?>"><?= $currentQuizz[$j][6]?></label><br>
+                                <label for="<?= $currentQuizz[$j][0]?>"><?= $value[3]?></label><br>
                             <?php
                             } ?>
-                            <br> -->
+                            <br>
                         </div>
                     </div>
                 <?php
                 $j++;
                 }
+            }
         }
 require_once('views/include/end.php');
 ?>
