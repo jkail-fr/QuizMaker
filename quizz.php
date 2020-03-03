@@ -3,9 +3,9 @@
 <?php
 // connexion à la BDD
 require_once('includes/sqlconnect.php');
+session_start();
 
 //Affichage questions pour quizz
-
 //Cas d'un choix de quizz aléatoire
 if ((isset($_POST['cat']) and isset($_POST['niv']) and $_POST['cat'] == "random")) {
 
@@ -74,8 +74,15 @@ require_once('views/include/body.php'); ?>
                 shuffle($reponseaffichage);
 
                 $test = array($reponseaffichage);
+                $lesreponses = array();
+                // var_dump($lesreponses);
 
-                foreach ($test as $value) { ?>
+                // On arrive à passer les variables mais le foreach semble écraser tout et ne conserver que la dernière boucle <=> voir avec un for ?
+
+                foreach ($test as $value) {
+                    array_push($lesreponses, 'toto');
+                    //var_dump($lesreponses);
+                ?>
                     <!-- Affichage des réponses -->
                     <div class="reponse">
                         <!-- Affichage des réponses 1 et 2 -->
@@ -101,18 +108,23 @@ require_once('views/include/body.php'); ?>
                         <br>
                     </div>
             </div>
-    <?php
+<?php
                     $j++;
                 }
             }
-            //  Vérifier comment passer une variable d'une page à l'autre (avec serialize ou json_encode ?) Comment passer le système d'une page à l'autre ? Avec une session ?
-            // var_dump($reponseaffichage);
-    ?>
-    <input type='hidden' name='reponses' value="<?php echo htmlentities(serialize($currentQuizz)); ?>" />
-    <input type='hidden' name='reponsesenvoyees' value="<?php echo htmlentities(serialize($currentQuizz)); ?>" />
+        }
+        var_dump($lesreponses);
+?>
 
+
+<!-- <input type='hidden' name='reponses' value="<?php //echo htmlentities(serialize($currentQuizz));
+                                                    ?>" />
+<input type='hidden' name='affiche' value="<?php //echo htmlentities(serialize($reponseaffichage));
+                                            ?>" /> -->
 <?php
-    } ?>
+$_SESSION["repCorrectes"] = $currentQuizz;
+$_SESSION["repUtilisateur"] = $reponseaffichage;
+?>
 
 <button type="submit">Valider le quizz</button>
 

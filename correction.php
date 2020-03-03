@@ -1,7 +1,9 @@
 <?php
 
-$passed_array = unserialize($_POST['reponses']);
-$passed_array_correct = unserialize($_POST['reponsesenvoyees']);
+session_start();
 
-var_dump($passed_array);
-// var_dump($passed_array_correct);
+$currentQuizz = $_SESSION["repCorrectes"];
+$reponseaffichage = $_SESSION["repUtilisateur"];
+
+var_dump($currentQuizz);
+var_dump($reponseaffichage);
