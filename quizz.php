@@ -26,20 +26,21 @@ require_once('views/include/body.php'); ?>
 <h1>Début du quizz</h1>
 <p> Vous avez 10 questions, bon courage ! </p>
 
-<form action="correction.php" method="POST">
-
-    <?php
-    // cas d'une personne saisissant directement l'URL de la page
-    if (!isset($_POST['cat']) or !isset($_POST['niv'])) {
-        echo "Vous n'avez pas sélectionné de niveau et/ou de catégorie";
-    }
-    // cas d'une personne sélectionnant correctement le quizz
-    else {
+<?php
+// cas d'une personne saisissant directement l'URL de la page
+if (!isset($_POST['cat']) or !isset($_POST['niv'])) {
+    echo "Vous n'avez pas sélectionné de niveau et/ou de catégorie";
+}
+// cas d'une personne sélectionnant correctement le quizz
+else {
+?>
+    <form action="correction.php" method="POST">
+        <?php
         $i = 0;
         $questionmax = 10;
         $currentQuizz = [];
 
-        // Récupère les données des questions et les stocke dans un array
+        // Récupère les données des questions et les stocke dans un array - on positionne les valeurs fixes en premier pour pouvoir faire un slice plus tard
         while ($donnees = $result->fetch() and $i <= $questionmax) {
             switch ($_POST['niv']) {
                 case 1:
@@ -60,76 +61,71 @@ require_once('views/include/body.php'); ?>
             $i++;
         }
 
-        // Créé la boucle générale qui va permettre de gérer l'affichage
+        //On extrait les réponses et on les mélange (les réponses, pas l'ordre d'affichage)
         $j = 0;
-        while ($j < count($currentQuizz) and $j < 10) { ?>
-            <div class="newquestion">
-                <div class="question">
-                    <hr> <!-- à enlever à la fin -->
-                    <?= $currentQuizz[$j][2] ?> <br>
-                </div>
-                <?php
-                // On récupère les index des questions dans l'array
-                $reponseaffichage = array_slice($currentQuizz[$j], 3);
-                shuffle($reponseaffichage);
+        $reponseaffichage = array();
 
-                $test = array($reponseaffichage);
-                $lesreponses = array();
-                // var_dump($lesreponses);
-
-                // On arrive à passer les variables mais le foreach semble écraser tout et ne conserver que la dernière boucle <=> voir avec un for ?
-
-                foreach ($test as $value) {
-                    array_push($lesreponses, 'toto');
-                    //var_dump($lesreponses);
-                ?>
-                    <!-- Affichage des réponses -->
-                    <div class="reponse">
-                        <!-- Affichage des réponses 1 et 2 -->
-                        <input type="radio" name="<?= $currentQuizz[$j][0] ?>" value="<?= $currentQuizz[$j][3] ?>">
-                        <label for="<?= $currentQuizz[$j][0] ?>"><?= $value[0] ?></label><br>
-                        <br>
-                        <input type="radio" name="<?= $currentQuizz[$j][0] ?>" value="<?= $currentQuizz[$j][4] ?>">
-                        <label for="<?= $currentQuizz[$j][0] ?>"><?= $value[1] ?></label><br>
-                        <br>
-                        <!-- Affichage de la réponse 3 -->
-                        <?php if (isset($currentQuizz[$j][5])) { ?>
-                            <input type="radio" name="<?= $currentQuizz[$j][0] ?>" value="<?= $currentQuizz[$j][5] ?>">
-                            <label for="<?= $currentQuizz[$j][0] ?>"><?= $value[2] ?></label><br>
-                            <br>
-                        <?php
-                        }
-                        // Affichage de la réponse 4
-                        if (isset($currentQuizz[$j][6])) { ?>
-                            <input type="radio" name="<?= $currentQuizz[$j][0] ?>" value="<?= $currentQuizz[$j][6] ?>">
-                            <label for="<?= $currentQuizz[$j][0] ?>"><?= $value[3] ?></label><br>
-                        <?php
-                        } ?>
-                        <br>
-                    </div>
-            </div>
-<?php
-                    $j++;
-                }
-            }
+        while ($j < count($currentQuizz) and $j < 10) {
+            $sliceArray = array_slice($currentQuizz[$j], 3);
+            shuffle($sliceArray);
+            $reponseaffichage[] = $sliceArray;
+            $j++;
         }
-        var_dump($lesreponses);
-?>
+
+        // On stocke les données en session
+        $_SESSION["repCorrectes"] = $currentQuizz;
+        $_SESSION["repUtilisateur"] = $reponseaffichage;
 
 
-<!-- <input type='hidden' name='reponses' value="<?php //echo htmlentities(serialize($currentQuizz));
-                                                    ?>" />
-<input type='hidden' name='affiche' value="<?php //echo htmlentities(serialize($reponseaffichage));
-                                            ?>" /> -->
+        // on affiche les question
+        $position = 0;
+        foreach ($reponseaffichage as $question) { ?>
+
+            <!-- Affichage de la question -->
+            <div class="question">
+                <hr> <!-- à enlever à la fin -->
+                <?= $currentQuizz[$position][2] ?> <br>
+            </div>
+
+            <!-- Affichage des réponses -->
+            <div class="reponses">
+
+                <!-- Affichage des réponses 1 et 2 -->
+                <input type="radio" name="<?= $currentQuizz[$position][0] ?>" value="<?= $currentQuizz[$position][3] ?>">
+                <label for="<?= $currentQuizz[$position][0] ?>"><?= $question[0] ?></label>
+                <br>
+                <input type="radio" name="<?= $currentQuizz[$position][0] ?>" value="<?= $currentQuizz[$position][4] ?>">
+                <label for="<?= $currentQuizz[$position][0] ?>"><?= $question[1] ?></label>
+                <br>
+
+                <!-- Affichage de la réponse 3 -->
+                <?php if (isset($currentQuizz[$position][5])) { ?>
+                    <input type="radio" name="<?= $currentQuizz[$position][0] ?>" value="<?= $currentQuizz[$position][5] ?>">
+                    <label for="<?= $currentQuizz[$position][0] ?>"><?= $question[2] ?></label>
+                    <br>
+                <?php
+                }
+                // Affichage de la réponse 4
+                if (isset($currentQuizz[$position][6])) { ?>
+                    <input type="radio" name="<?= $currentQuizz[$position][0] ?>" value="<?= $currentQuizz[$position][6] ?>">
+                    <label for="<?= $currentQuizz[$position][0] ?>"><?= $question[3] ?></label>
+
+                <?php
+                }
+
+                $position++;
+                ?>
+
+            </div>
+
+        <?php
+        }
+        ?>
+
+        <button type="submit">Valider le quizz</button>
+    </form>
+
 <?php
-$_SESSION["repCorrectes"] = $currentQuizz;
-$_SESSION["repUtilisateur"] = $reponseaffichage;
-?>
-
-<button type="submit">Valider le quizz</button>
-
-</form>
-
-<?php
+}
 require_once('views/include/end.php');
 ?>

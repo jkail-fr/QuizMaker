@@ -1,11 +1,10 @@
 # QuizMaker
 
-
 QuizMaker : conception de quizz
 
 ##Etape 1 : SQL - conception DB
 créer catégories + questions types
-Table question (texte question, réponses, categorieS et niveauX)
+Table question (texte question, réponses, categories et niveauX)
 
 ##Etape 2 : PHP/SQL - Inteface de création des questions et des categories
 Gérer les question et ajouter / supprimer des catégories ou niveaux ([array envoyé a la DB)])
@@ -15,32 +14,35 @@ pdo requete sur niveaux + categ
 
 ##Etape 4 : JS - Masquer le contenu et gérer les animations et feedbacks
 
-##Etape facultative : JS - Essayer le drag and drop
-
-
-
 
 PROCHAINE SESSION :
-0) gérer .gitignore to sqlconnect ;
 
 4) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter") ;
 
 5) Partager un schéma de BDD sur github ;
 
-6) créer 2 pages différentes pour les questions :
-
-- une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
-
 19) clic de l'utilisateur pour valider chacune de ses réponses ; afficher le résultat (bonne réponse = vert ; mauvaise réponse (si sélectionnée) en rouge) ; donner le feedback ! En JS
 Bouton submit à faire pour envoyer les réponses ; comparer les réponses avec la colonne "bonne_reponse" ; renvoyer le résultat et afficher le feedback.
 Boucler si la même page ou renvoyer sur une autre ? 
 
-20) afficher les propositions de réponse dans un ordre aléatoire ;-) (pour éviter que qq'un clique toujours sur la 1re réponse)
+22) analyser les réponses données par l'utilisateur <=> il faut refaire l'affichage des questions en cochant les réponses de l'utilisateur.
+Mettre un "readonly" sur les réponses pour que l'utilisateur ne els change pas par la suite.
 
-21) gérer le mode "aléatoire" (notamment comment analyser les réponses données par l'utilisateur).
+23) Afficher le Feedback (si l'utilisateur s'est palnté ou bien pour toutes les questions ?)
+
+24) Mettre une note sur le nombre de bonnes réponses sur le nombre de questions.
+
+25) Prévoir deux boutons : 
+- 1 pour refaire le même questionnaire mais avec des questions différentes (<=> il faut qu'on s'envoie le niveau et la catégorie du quizz que fait l'utilisateur) ;
+- 1 pour revenir à l'accueil et choisir un autre quizz.
+
+26) une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
+
 
 
 DONE : 
+
+0) gérer .gitignore to sqlconnect ;
 
 1) Mettre des "include" partout <=> au fur et à mesure : OK ;
 
@@ -75,4 +77,8 @@ DONE :
 
 17) Ajouter des "required" pour les éléments qui sont obligatoires (le texte de la question, la bonne réponse, le feedback, ...).
 
-18) if isset pour niveau et catégorie ; un if isset catégorie aléatoire ; un if isset rien. 
+18) if isset pour niveau et catégorie ; un if isset catégorie aléatoire ; un if isset rien.
+
+20) afficher les propositions de réponse dans un ordre aléatoire ;-) (pour éviter que qq'un clique toujours sur la 1re réponse)
+
+21) gérer le mode "aléatoire" 
