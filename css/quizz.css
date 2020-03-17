@@ -8,6 +8,10 @@
     font-weight: bold;
 }
 
-.reponse{
 
-}
+
+.correct {background:green;}
+
+.incorrect {background:red;}
+
+.feedback{border:1px solid grey; margin-top: 5px;}

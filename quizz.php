@@ -63,23 +63,23 @@ else {
 
         //On extrait les réponses et on les mélange (les réponses, pas l'ordre d'affichage)
         $j = 0;
-        $reponseaffichage = array();
+        $affichageQuestions = array();
 
         while ($j < count($currentQuizz) and $j < 10) {
             $sliceArray = array_slice($currentQuizz[$j], 3);
             shuffle($sliceArray);
-            $reponseaffichage[] = $sliceArray;
+            $affichageQuestions[] = $sliceArray;
             $j++;
         }
 
         // On stocke les données en session
         $_SESSION["repCorrectes"] = $currentQuizz;
-        $_SESSION["repUtilisateur"] = $reponseaffichage;
+        $_SESSION["repUtilisateur"] = $affichageQuestions;
 
 
         // on affiche les question
         $position = 0;
-        foreach ($reponseaffichage as $question) { ?>
+        foreach ($affichageQuestions as $question) { ?>
 
             <!-- Affichage de la question -->
             <div class="question">
