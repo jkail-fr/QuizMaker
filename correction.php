@@ -6,12 +6,13 @@ session_start();
 $currentQuizz = $_SESSION["repCorrectes"];
 // Réponses dans l'ordre affiché lors du quizz au joueur
 $affichageQuestions = $_SESSION["repUtilisateur"];
+// Nombre maximum de questions
+$questionMax = $_SESSION["questionmax"];
 
 // On récupère les réponses du joueur
 $reponseJoueur = $_POST;
 // var_dump($reponseJoueur);
 array_splice($reponseJoueur, 0, 0);
-var_dump($reponseJoueur);
 
 // Inclusion du html
 require_once('views/include/head.php');
@@ -22,7 +23,9 @@ require_once('views/include/body.php');
 
 // On réaffiche les questions et les réponses données par le joueur
 $position = 0;
+$total = 0;
 foreach ($affichageQuestions as $question) {
+    // var_dump($question);
 
 ?>
 
@@ -87,20 +90,30 @@ foreach ($affichageQuestions as $question) {
         </div>
 
         <?php
-        //On calcule les points
-        $resultat = 0;
-        // var_dump($currentQuizz[$position][3]);
-        // var_dump($reponseJoueur[$position]);
-        if ($currentQuizz[$position][3] == $reponseJoueur[$position]) {
-            $resultat++;
+
+
+        // Calcul du résultat total
+        switch (true) {
+                // Pour chaque cas, on vérifie si la case checkée correspond à la bonne réponse
+            case ($currentQuizz[$position][3] == $reponseJoueur[$position] && $currentQuizz[$position][3] == $question[0]):
+                $total += 1;
+                break;
+            case ($currentQuizz[$position][4] == $reponseJoueur[$position] && $currentQuizz[$position][3] == $question[1]):
+                $total += 1;
+                break;
+            case ($currentQuizz[$position][5] == $reponseJoueur[$position] && $currentQuizz[$position][3] == $question[2]):
+                $total += 1;
+                break;
+            case ($currentQuizz[$position][6] == $reponseJoueur[$position] && $currentQuizz[$position][3] == $question[3]):
+                $total += 1;
+                break;
         }
+
         $position++;
         ?>
     </div>
 
 <?php
 }
-echo 'Votre résultat est de ' . $resultat . '/' . count($currentQuizz) . '.';
+echo 'Votre résultat est de ' . $total . '/' . $questionMax . '.';
 ?>
-
-<!-- Récupérer les réponses cochées par le joueur pour les recocher (avec un if valeur = ... alors on check) -->

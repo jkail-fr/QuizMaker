@@ -21,10 +21,6 @@ PROCHAINE SESSION :
 
 5) Partager un schéma de BDD sur github ;
 
-24a) Vérifier les réponses du joueur passées par le POST : réponses joueur = bouton radio checked.
-24b) Mettre une note sur le nombre de bonnes réponses sur le nombre de questions.
-24c) rajouter le nombre de questions total (déjà fait).
-
 25) Prévoir deux boutons : 
 - 1 pour refaire le même questionnaire mais avec des questions différentes (<=> il faut qu'on s'envoie le niveau et la catégorie du quizz que fait l'utilisateur) ;
 - 1 pour revenir à l'accueil et choisir un autre quizz.
@@ -82,3 +78,7 @@ DONE :
 Mettre un "disabled" sur les réponses pour que l'utilisateur ne les change pas par la suite.
 
 23) Afficher le Feedback (si l'utilisateur s'est planté ou bien pour toutes les questions ?)
+
+24a) Vérifier les réponses du joueur passées par le POST : réponses joueur = bouton radio checked.
+24b) Mettre une note sur le nombre de bonnes réponses sur le nombre de questions.
+24c) rajouter le nombre de questions total (déjà fait).

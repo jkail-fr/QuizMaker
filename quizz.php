@@ -75,7 +75,7 @@ else {
         // On stocke les données en session
         $_SESSION["repCorrectes"] = $currentQuizz;
         $_SESSION["repUtilisateur"] = $affichageQuestions;
-
+        $_SESSION["questionmax"] = $questionmax;
 
         // on affiche les question
         $position = 0;
