@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 // Réponses dans l'ordre de la table MySQL
@@ -13,6 +12,11 @@ $questionMax = $_SESSION["questionmax"];
 $reponseJoueur = $_POST;
 // var_dump($reponseJoueur);
 array_splice($reponseJoueur, 0, 0);
+
+//On récupère $cat et $niv pour le bouton qui relance le même type de quizz
+$cat = $_POST['cat'];
+$niv = $_POST['niv'];
+var_dump($cat, $niv);
 
 // Inclusion du html
 require_once('views/include/head.php');
@@ -117,3 +121,10 @@ foreach ($affichageQuestions as $question) {
 }
 echo 'Votre résultat est de ' . $total . '/' . $questionMax . '.';
 ?>
+<form action="quizz.php" method="POST">
+    <input type="hidden" value="<?= $cat ?>" name="cat">
+    <input type="hidden" value="<?= $niv ?>" name="niv">
+    <input type="submit" value="Recommencer le questionnaire" />
+</form>
+
+<a href="index.php"> <button>Revenir à l'accueil pour choisir un autre quizz </button></a>

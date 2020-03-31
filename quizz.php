@@ -8,13 +8,16 @@ session_start();
 //Affichage questions pour quizz
 //Cas d'un choix de quizz aléatoire
 if ((isset($_POST['cat']) and isset($_POST['niv']) and $_POST['cat'] == "random")) {
-
     $result = $bdd->query('SELECT * FROM `qanda` WHERE niveau LIKE "%' . $_POST['niv'] . '%" ORDER BY RAND()');
+    $cat = $_POST['cat'];
+    $niv = $_POST['niv'];
 }
 
 //Cas d'un choix de quizz avec catégorie et niveaux
 else {
     $result = $bdd->query('SELECT * FROM `qanda` WHERE categorie LIKE "%' . $_POST['cat'] . '%" AND niveau LIKE "%' . $_POST['niv'] . '%" ORDER BY RAND()');
+    $cat = $_POST['cat'];
+    $niv = $_POST['niv'];
 }
 
 require_once('views/include/head.php');
@@ -35,6 +38,8 @@ if (!isset($_POST['cat']) or !isset($_POST['niv'])) {
 else {
 ?>
     <form action="correction.php" method="POST">
+        <input type="hidden" value="<?= $cat ?>" name="cat">
+        <input type="hidden" value="<?= $niv ?>" name="niv">
         <?php
         $i = 0;
         $questionmax = 10;
