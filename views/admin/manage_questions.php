@@ -35,14 +35,14 @@ if (isset($_POST['delete']))
 
     <tbody>
         <?php
-        // if (isset($_POST['recherche'])) {
-        //     $mot = $_POST['recherche'];
-        //     $tableau = $bdd->query("SELECT * FROM `qanda` WHERE CONCAT_WS(' ', question, bonne_reponse, facile, intermediaire, expert, feedback) LIKE '$mot' ORDER BY ID");
-        //     var_dump($tableau);
-        //     echo "toto";
-        // } else {
-        //     $tableau = $bdd->query('SELECT * FROM `qanda` ORDER BY ID');
-        // }
+        if (isset($_POST['recherche'])) {
+            $mot = $_POST['recherche'];
+            $tableau = $bdd->query("SELECT * FROM `qanda` WHERE (CONCAT(`question`, `bonne_reponse`, `facile`, `intermediaire`, `expert`, `feedback`) LIKE '%$mot%')");
+            // var_dump($tableau);
+            // echo "toto";
+        } else {
+            $tableau = $bdd->query('SELECT * FROM `qanda` ORDER BY ID');
+        }
 
         while ($donnees = $tableau->fetch()) {
         ?>

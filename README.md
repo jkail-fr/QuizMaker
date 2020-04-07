@@ -14,14 +14,27 @@ pdo requete sur niveaux + categ
 
 ##Etape 4 : JS - Masquer le contenu et gérer les animations et feedbacks
 
-PROCHAINE SESSION :
+POUR UNE V2 :
 
-4) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter") ;
+00) Créer une interface pour se créer un compte, se connecter et donner les droits administrateur à qq'un (par défaut, tout le monde est joueur)
 
-5) Partager un schéma de BDD sur github ;
+0a) vérifier les failles de sécurité (ce qu'on envoie comme texte dans le bouton "ajouter") ;
 
-26) une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
+0b) Partager un schéma de BDD sur github ;
 
+0c) Revoir affichage de edit_question ("question modifiée" qui s'affiche en double ou triple) ;
+
+
+
+FIN DE LA V1 : 
+
+4) Revoir le style avec bootstrap (ou autre) + JavaScript pour les checkbox qu'on va passer en bouton
+
+5) créer un htaccess pour le côté admin 
+
+13) ...
+
+16) ...
 
 
 DONE : 
@@ -81,3 +94,5 @@ Mettre un "disabled" sur les réponses pour que l'utilisateur ne les change pas 
 25) Prévoir deux boutons : 
 - 1 pour refaire le même questionnaire mais avec des questions différentes (<=> il faut qu'on s'envoie le niveau et la catégorie du quizz que fait l'utilisateur) ;
 - 1 pour revenir à l'accueil et choisir un autre quizz.
+
+26) une page de gestion des questions avec option de recherche (page autonome qui fait une requête : on choisit parmi une thématique ou un niveau et ça sort toutes les questions associées ; prévoir une barre de recherche).
