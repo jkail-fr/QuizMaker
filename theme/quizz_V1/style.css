@@ -1,9 +1,10 @@
-/* Mise en forme du body */
+/* BODY */
 body
 {
 	background-color: #415967;
 	color: white;
-    font-size: 12px;
+	font-size: 12px;
+	margin: 20px;
 }
 
 
@@ -26,7 +27,7 @@ h1+p
 /* Mise en forme des liens de navigation vers les quizz */
 nav a
 {
- 	color: #001b50;   
+ 	color: #001b50;
     font-size: 16px;
     text-decoration: none;
 }
@@ -46,3 +47,19 @@ nav a:hover
 	text-align: center;
 	width: 80%;
 }
+
+.newquestion{
+    margin : 2rem;
+}
+
+.question{
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.correct {background:green;}
+
+.incorrect {background:red;}
+
+.feedback{border:1px solid grey; margin-top: 5px;}

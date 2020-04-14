@@ -1,37 +1,24 @@
-<!-- Partie PHP -->
 <?php
-
-// connexion à la BDD
 require_once('includes/sqlconnect.php');
+
+require_once('views/include/header.php');
 ?>
 
-<!-- Partie HTML -->
-<!DOCTYPE html>
-<html>
 
-<!-- Header -->
-
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/style.css" /> <!-- Renvoi sur la page style -->
-    <title>Accueil - Quizz</title> <!-- Titre de la page -->
+<title>Accueil - Quizz</title> <!-- Titre de la page -->
 </head>
 
-<!-- Body -->
 
 <body>
 
-    <!-- Header du Body -->
     <header>
         <h1> Bienvenue sur la page d'accueil du quizz </h1>
 
-        <!-- Paragraphe de présentation de la page -->
         <p>
             (phrase d'accueil : blablabla)
         </p>
     </header>
 
-    <!-- Liste des catégories de quizz -->
     <div>
         Cliquez ici pour choisir la catégorie et le niveau du quizz :
 
@@ -74,11 +61,5 @@ require_once('includes/sqlconnect.php');
 
     <hr>
 
-    <!-- Footer -->
-    <footer>
-        <div><a href="./views/admin/index.html">administration</a></div>
-    </footer>
-
-</body>
-
-</html>
+    <?php
+    include('./views/include/footer.php');

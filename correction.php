@@ -16,11 +16,9 @@ array_splice($reponseJoueur, 0, 0);
 //On récupère $cat et $niv pour le bouton qui relance le même type de quizz
 $cat = $_POST['cat'];
 $niv = $_POST['niv'];
-var_dump($cat, $niv);
 
 // Inclusion du html
-require_once('views/include/head.php');
-echo '<link rel="stylesheet" href="css/quizz.css" />';
+require_once('views/include/header.php');
 echo '<title> Mon titre </title>';
 
 require_once('views/include/body.php');

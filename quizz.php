@@ -20,11 +20,12 @@ else {
     $niv = $_POST['niv'];
 }
 
-require_once('views/include/head.php');
-echo '<link rel="stylesheet" href="css/quizz.css" />';
+require_once('views/include/header.php');
 echo '<title> Mon titre </title>';
 
 require_once('views/include/body.php'); ?>
+
+
 
 <h1>Début du quizz</h1>
 <p> Vous avez 10 questions, bon courage ! </p>
